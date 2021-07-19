@@ -142,6 +142,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.githubService.getGithubRepos(this.searchQuery).subscribe(function (data) {
             _this2.githubReposData = data;
             _this2.loading = false;
+            _this2.searchQuery = '';
           });
         }
       }]);
@@ -157,8 +158,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       type: AppComponent,
       selectors: [["app-root"]],
       decls: 14,
-      vars: 4,
-      consts: [[1, "loading"], ["height", "100", "width", "100", "src", "assets/spinner.gif", 4, "ngIf"], [1, "container", "mt-3"], [1, "card"], [1, "card-body"], [1, "form-inline", 3, "submit"], ["type", "search", "size", "40", "name", "username", "placeholder", "Search GitHub Username", "autocomplete", "off", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "submit", 1, "btn", "btn-success", "btn-sm", "ml-3"], [3, "githubProfileData"], [3, "githubReposData"], ["height", "100", "width", "100", "src", "assets/spinner.gif"]],
+      vars: 5,
+      consts: [[1, "loading"], ["height", "100", "width", "100", "src", "assets/spinner.gif", 4, "ngIf"], [1, "container", "mt-3"], [1, "card"], [1, "card-body"], [1, "form-inline"], ["id", "clearInput", "type", "search", "size", "40", "name", "username", "placeholder", "Search GitHub Username", "autocomplete", "off", 1, "form-control", 3, "ngModel", "ngModelChange"], ["type", "button", 1, "btn", "btn-success", "btn-sm", "ml-3", 3, "disabled", "click"], [3, "githubProfileData"], [3, "githubReposData"], ["height", "100", "width", "100", "src", "assets/spinner.gif"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-github-header");
@@ -177,10 +178,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "form", 5);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function AppComponent_Template_form_submit_6_listener() {
-            return ctx.getUser();
-          });
-
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "input", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_Template_input_ngModelChange_7_listener($event) {
@@ -190,6 +187,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "button", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_Template_button_click_8_listener() {
+            return ctx.getUser();
+          });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Search");
 
@@ -225,7 +226,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.searchQuery);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.searchQuery.length === 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("githubProfileData", ctx.githubProfileData);
 
