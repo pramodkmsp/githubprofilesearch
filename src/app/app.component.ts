@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
     this.githubService.getGithubRepos(this.searchQuery).subscribe((data) => {
       this.githubReposData = data;
       this.loading = false;
+      this.searchQuery = '';
     });
   }
 }

@@ -10,10 +10,10 @@
 <div class="container mt-3">
   <div class="card">
     <div class="card-body">
-      <form class="form-inline" (submit)="getUser()">
-        <input type="search" [(ngModel)]="searchQuery" size="40" class="form-control" name="username"
+      <form class="form-inline">
+        <input id="clearInput" type="search" [(ngModel)]="searchQuery" size="40" class="form-control" name="username"
           placeholder="Search GitHub Username" autocomplete="off">
-        <button class="btn btn-success btn-sm ml-3" type="submit">Search</button>
+        <button [disabled]="searchQuery.length === 0" class="btn btn-success btn-sm ml-3" type="button" (click)="getUser()">Search</button>
       </form>
     </div>
   </div>
