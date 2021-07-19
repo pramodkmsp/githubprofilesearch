@@ -1,0 +1,12 @@
+<div *ngIf="githubProfileData" class="card">
+    <div class="d-flex justify-content-center m-2">
+        <img height="275" width="275" class="rounded-circle"
+        [src]="githubProfileData.avatar_url" alt="">
+    </div>
+
+  <div class="card-body">
+    <h3>{{githubProfileData.name}}</h3>
+    <p>{{profileBio}}.</p>
+    <a class="btn btn-success btn-sm" [href]="githubProfileData.html_url" target="_blank">Profile</a>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="card" *ngIf="githubProfileData">
+  <div class="card-header bg-secondary text-white d-flex justify-content-between">
+    <span class="badge badge-primary">{{githubProfileData.followers}} Followers</span>
+    <span class="badge badge-success">{{githubProfileData.public_repos}} Repos</span>
+    <span class="badge badge-warning">{{githubProfileData.public_gists}} Gists</span>
+    <span class="badge badge-danger">{{githubProfileData.following}} Following</span>
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">User Name:
+        {{(githubProfileData.name) ? githubProfileData.name : 'Username is not updated in GitHub'}}</li>
+      <li class="list-group-item">Location:
+        {{(githubProfileData.location) ? githubProfileData.location : 'Location is not updated in GitHub'}}</li>
+      <li class="list-group-item">Email:
+        {{(githubProfileData.email) ? githubProfileData.email : 'Email is not updated in GitHub'}}</li>
+      <li class="list-group-item">Company:
+        <a [href]="githubProfileData.blog" target="_blank">
+          {{(githubProfileData.company) ? githubProfileData.company : 'Company is not updated in GitHub'}}
+        </a>
+      </li>
+      <li class="list-group-item">Blog:
+        <a [href]="githubProfileData.blog" target="_blank">
+          {{(githubProfileData.blog) ? githubProfileData.blog : 'Blog is not updated in GitHub'}} </a>
+      </li>
+      <li class="list-group-item">Member Since: {{githubProfileData.created_at | date: 'mediumDate'}}</li>
+      <li class="list-group-item">PROFILE URL:
+        <a [href]="githubProfileData.html_url" target="_blank"> {{githubProfileData.html_url}} </a>
+      </li>
+    </ul>
+  </div>
+</div>
